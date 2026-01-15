@@ -544,9 +544,7 @@ loadAsiaMap();
 
 function loadMap(adcode, mapName) {
     log('---- loadMap ---- adcode=', adcode, 'mapName=', mapName);
-    // 把 loadMap 里的 fetch 换成
-    fetch(`https://geo.datav.aliyun.com/areas_v3/bound/${adcode}_full.json`, {
-      redirect: 'follow'   // 允许跟随 302})
+    fetch(`https://geo.datav.aliyun.com/areas_v3/bound/${adcode}_full.json`)
         .then(r => r.json())
         .then(geo => {
             const cleaned = turf.featureCollection(
@@ -841,6 +839,5 @@ function showAsiaCityPicker(countryName, countryObj) {
 
     drawer.classList.add('show');
 }
-
 
 updateStats('asia');
