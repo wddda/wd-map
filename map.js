@@ -544,7 +544,9 @@ loadAsiaMap();
 
 function loadMap(adcode, mapName) {
     log('---- loadMap ---- adcode=', adcode, 'mapName=', mapName);
-    fetch(`https://geo.datav.aliyun.com/areas_v3/bound/${adcode}_full.json`)
+    // 把 loadMap 里的 fetch 换成
+    fetch(`https://geo.datav.aliyun.com/areas_v3/bound/${adcode}_full.json`, {
+      redirect: 'follow'   // 允许跟随 302})
         .then(r => r.json())
         .then(geo => {
             const cleaned = turf.featureCollection(
