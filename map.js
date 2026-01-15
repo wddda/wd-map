@@ -841,3 +841,6 @@ function showAsiaCityPicker(countryName, countryObj) {
 
     drawer.classList.add('show');
 }
+
+
+updateStats('asia');
